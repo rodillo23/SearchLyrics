@@ -11,16 +11,16 @@ export const SongDetails = ({search, bio, lyric}) => {
       {
         bio.artists 
           ? 
-            <SongArtist/> 
+            <SongArtist artist={bio.artists[0]}/> 
           : 
-            <Message/>
+            <Message msg={`No se encontro el artista ${search.artist}`} bgColor='#dc3545'/>
       }
       {
         lyric.err || lyric.name === 'AbortError' 
           ? 
-            <Message msg={`Error: no existe la cancion: ${search.song} en la BD`}/> 
+            <Message msg={`Error: no existe la cancion: ${search.song} en la BD`} bgColor='#dc3545'/> 
           : 
-            <SongLyric/>
+            <SongLyric lyric={lyric} title={search.song}/>
       }
       
     </>

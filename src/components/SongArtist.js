@@ -1,9 +1,28 @@
-import React from 'react'
+import React from "react";
 
-export const SongArtist = () => {
+export const SongArtist = ({ artist }) => {
+  const {
+    strArtist,
+    strArtistThumb,
+    intBornYear,
+    intDiedYear,
+    strCountry,
+    strGenre,
+    strStyle,
+    strWebsite,
+    strBiographyES,
+  } = artist;
   return (
     <div>
-      <h2>Informacionde del Artista</h2>
+      <h3>{strArtist}</h3>
+      <p>
+        {intBornYear} - {intDiedYear || "Present"}
+      </p>
+      <img src={strArtistThumb} alt={strArtist} width="300" />
+      <p>{strCountry}</p>
+      <p>{`${strGenre} - ${strStyle}`}</p>
+      <a href={`http://${strWebsite}`} target="_blank">Website</a>
+      <p>{strBiographyES}</p>
     </div>
-  )
-}
+  );
+};
